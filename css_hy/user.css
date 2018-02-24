@@ -1,0 +1,120 @@
+.user {
+  font-weight: bold;
+}
+
+.user-newbie {
+  color: black;
+}
+
+.user-beginner {
+  color: green;
+}
+
+.user-novice {
+  color: SeaGreen;
+}
+
+.user-coder {
+  color: blue;
+}
+
+.user-expert {
+  color: DarkViolet;
+}
+
+.user-master {
+  color: GoldenRod;
+}
+
+.user-hacker {
+  color: red;
+}
+
+.user-banned {
+  color: DarkGray;
+  text-decoration: line-through;
+}
+
+.user-problemsetter {
+  color: orange;
+}
+
+.user-admin {
+  color: maroon;
+}
+
+.user-mod {
+  text-shadow: 0px -2px 2px red;
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    color: red;
+  }
+  17% {
+    color: #FF0;
+  }
+  33% {
+    color: #0F0;
+  }
+  50% {
+    color: #0FF;
+  }
+  67% {
+    color: #00F;
+  }
+  84% {
+    color: #F0F;
+  }
+  100% {
+    color: red;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    color: red;
+  }
+  17% {
+    color: #FF0;
+  }
+  33% {
+    color: #0F0;
+  }
+  50% {
+    color: #0FF;
+  }
+  67% {
+    color: #00F;
+  }
+  84% {
+    color: #F0F;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.user-grandmaster {
+  color: #FFFFFF;
+  -webkit-animation-name: rainbow;
+          animation-name: rainbow;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes blur {
+  from {
+    text-shadow: 0px 0px 1px #f00, 0px 0px 1px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 3px #f00, 0px 0px 3px #f00, 0px 0px 3px #7B96B8, 0px 0px 5px #7B96B8, 0px 3px 8px #7B96B8, 0px 3px 8px #7B96B8, 0px 3px 8px #7B96B8, 0px 3px 8px #7B96B8, 0px -3px 8px #7B96B8, 0px -3px 8px #7B96B8;
+  }
+}
+
+@keyframes blur {
+  from {
+    text-shadow: 0px 0px 1px #f00, 0px 0px 1px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 2px #f00, 0px 0px 3px #f00, 0px 0px 3px #f00, 0px 0px 3px #7B96B8, 0px 0px 5px #7B96B8, 0px 3px 8px #7B96B8, 0px 3px 8px #7B96B8, 0px 3px 8px #7B96B8, 0px 3px 8px #7B96B8, 0px -3px 8px #7B96B8, 0px -3px 8px #7B96B8;
+  }
+}

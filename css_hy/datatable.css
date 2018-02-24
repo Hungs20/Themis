@@ -1,0 +1,48 @@
+.datatable td {
+    width: auto !important;
+    max-width: 20em !important;
+    overflow: auto;
+}
+
+.datatable {
+    width: auto;
+    position: absolute;
+}
+
+.datatable table {
+    width: auto;
+}
+
+.datatable td, .datatable th {
+    border-top: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    padding: 0.5em;
+    font-size: 0.9em;
+    text-align: center;
+    overflow: hidden;
+}
+
+.datatable th {
+    font-weight: bold;
+    color:#0000cc;
+}
+
+.datatable .left {
+    border-left: none;
+}
+
+.datatable .top {
+    border-top: none;
+}
+
+.datatable .bottom {
+    border-bottom: none;
+}
+
+.datatable .right {
+    border-right: none;
+}
+
+.datatable .dark {
+    background-color: #f8f8f8;
+}

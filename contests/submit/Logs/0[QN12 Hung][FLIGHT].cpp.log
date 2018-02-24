@@ -1,0 +1,104 @@
+﻿QN12 Hung‣FLIGHT: 0.00
+FLIGHT.cpp
+Dịch thành công
+
+QN12 Hung‣FLIGHT‣test01: 0.00
+Thời gian ≈ 0.047551151 giây
+ Ket qua sai!!
+ Output is: 2
+ Answer is: -1
+QN12 Hung‣FLIGHT‣test02: 0.00
+Thời gian ≈ 0.026418409 giây
+ Ket qua sai!!
+ Output is: 2
+ Answer is: 3
+QN12 Hung‣FLIGHT‣test03: 0.00
+Thời gian ≈ 0.026875172 giây
+ Ket qua sai!!
+ Output is: 4
+ Answer is: 5
+QN12 Hung‣FLIGHT‣test04: 0.00
+Thời gian ≈ 0.027798318 giây
+ Ket qua sai!!
+ Output is: 6
+ Answer is: 8
+QN12 Hung‣FLIGHT‣test05: 0.00
+Thời gian ≈ 0.029213601 giây
+ Ket qua sai!!
+ Output is: 7
+ Answer is: 10
+QN12 Hung‣FLIGHT‣test06: 0.00
+Thời gian ≈ 0.027226743 giây
+ Ket qua sai!!
+ Output is: 10
+ Answer is: 13
+QN12 Hung‣FLIGHT‣test07: 0.00
+Thời gian ≈ 0.027394927 giây
+ Ket qua sai!!
+ Output is: 13
+ Answer is: 21
+QN12 Hung‣FLIGHT‣test08: 0.00
+Thời gian ≈ 0.031354058 giây
+ Ket qua sai!!
+ Output is: 14
+ Answer is: 24
+QN12 Hung‣FLIGHT‣test09: 0.00
+Thời gian ≈ 0.041194324 giây
+ Ket qua sai!!
+ Output is: 15
+ Answer is: 25
+QN12 Hung‣FLIGHT‣test10: 0.00
+Thời gian ≈ 0.041844094 giây
+ Ket qua sai!!
+ Output is: 16
+ Answer is: 26
+QN12 Hung‣FLIGHT‣test11: 0.00
+Thời gian ≈ 0.050540591 giây
+ Ket qua sai!!
+ Output is: 123
+ Answer is: 133
+QN12 Hung‣FLIGHT‣test12: 0.00
+Thời gian ≈ 0.041199909 giây
+ Ket qua sai!!
+ Output is: 233
+ Answer is: 279
+QN12 Hung‣FLIGHT‣test13: 0.00
+Thời gian ≈ 0.048456920 giây
+ Ket qua sai!!
+ Output is: 1059
+ Answer is: 1075
+QN12 Hung‣FLIGHT‣test14: 0.00
+Thời gian ≈ 0.046932100 giây
+ Ket qua sai!!
+ Output is: 15
+ Answer is: 23
+QN12 Hung‣FLIGHT‣test15: 0.00
+Thời gian ≈ 0.043846777 giây
+ Ket qua sai!!
+ Output is: 11
+ Answer is: 19
+QN12 Hung‣FLIGHT‣test16: 0.00
+Thời gian ≈ 0.046560049 giây
+ Ket qua sai!!
+ Output is: 9
+ Answer is: 16
+QN12 Hung‣FLIGHT‣test17: 0.00
+Thời gian ≈ 0.041781103 giây
+ Ket qua sai!!
+ Output is: 699
+ Answer is: 1027
+QN12 Hung‣FLIGHT‣test18: 0.00
+Thời gian ≈ 0.046247266 giây
+ Ket qua sai!!
+ Output is: 788
+ Answer is: 830
+QN12 Hung‣FLIGHT‣test19: 0.00
+Thời gian ≈ 0.046014540 giây
+ Ket qua sai!!
+ Output is: 43
+ Answer is: 69
+QN12 Hung‣FLIGHT‣test20: 0.00
+Thời gian ≈ 0.046291639 giây
+ Ket qua sai!!
+ Output is: 550
+ Answer is: 617
