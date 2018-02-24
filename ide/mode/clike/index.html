@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/edit/matchbrackets.js"></script>
+<link rel="stylesheet" href="../../addon/hint/show-hint.css">
+<script src="../../addon/hint/show-hint.js"></script>
+<script src="clike.js"></script>
+<style>.CodeMirror {border: 2px inset #dee;}</style>
+
+
+<article>
+
+<h2>C++ example</h2>
+
+<div><textarea id="cpp-code">
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+  return 0;
+}
+</textarea></div>
+
+    <script>
+
+      var cppEditor = CodeMirror.fromTextArea(document.getElementById("cpp-code"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "text/x-c++src"
+      });
+     
+     
+    </script>
+
+
+</article>
