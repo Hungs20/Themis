@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	include("init.php");
 	include("config.php");
 ?>
@@ -18,12 +18,11 @@
 <body>
 <?php
 
-	$lastsubmit = $_SESSION['lastsubmit'];
-	if(strtotime(date('Y-m-d H:i:s')) - $lastsubmit < $submitTime)
-	{
-		$message = 'Bạn submit quá nhanh. Bạn phải đợi <b><font color = "red">'. ($submitTime - (strtotime(date('Y-m-d H:i:s')) - $lastsubmit)) . '</font></b>s nữa mới được submit tiếp.';
-	}
-	else if (((date_timestamp_get($startTime) + $duringTime*60 - time() > 0)) || ($duringTime == 0)) {
+	$temp = explode(".", $_FILES["file"]["name"]);
+	$extension = end($temp);
+	$lastsubmit = $_SESSION['prb'.$temp[0].$extension];
+
+	 if (((date_timestamp_get($startTime) + $duringTime*60 - time() > 0)) || ($duringTime == 0)) {
 
 		$temp = explode(".", $_FILES["file"]["name"]);
 		$extension = end($temp);
@@ -38,11 +37,15 @@
 			{
 				$message = "LỖI: File chỉ được có phần mở rộng là : c, cpp, pas, java";
 			}
+		else if(strtotime(date('Y-m-d H:i:s')) - $lastsubmit < $submitTime)
+			{
+				$message = 'Bạn submit quá nhanh. Bạn phải đợi <b><font color = "red">'. ($submitTime - (strtotime(date('Y-m-d H:i:s')) - $lastsubmit)) . '</font></b>s nữa mới được submit tiếp bài <font color = "green"><b>'.$temp[0].'.'.$extension.'</b></font>.';
+			}
 		else 
 			{		
 				//update time submit
-				$_SESSION['lastsubmit'] = strtotime(date('Y-m-d H:i:s'));
-
+				$_SESSION['prb'.$temp[0].$extension] = strtotime(date('Y-m-d H:i:s'));
+				
 				$dir = $uploadDir;
 				$his = $hisDir;
 				$source = $his ."/".  $user['id']."[".$user['username']."][".$temp[0]."].".$extension;
@@ -68,7 +71,7 @@
 	else {
 				$message = "Đã hết thời gian nộp bài! <br/><br/> Nộp bài không thành công!";
 	}	
-?>		
+?>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
