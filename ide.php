@@ -219,7 +219,7 @@ if (otionValue == "cpp") {
 </script>
 <?php
 
-  $lastsubmit = $_SESSION['lastsubmit'];
+
     if(isset($_POST['submit'])){
         $ten=$_POST['ten'];
         $str=preg_replace('/[^a-z0-9]+/i','',$ten);
@@ -235,14 +235,16 @@ if (otionValue == "cpp") {
              $err = "Tên file không hợp lệ.";
           }
         else{
+
+          $lastsubmit = $_SESSION['prb'.$ten.$file];
           if(strtotime(date('Y-m-d H:i:s')) - $lastsubmit < $submitTime)
             {
-               $err = 'Bạn submit quá nhanh. Bạn phải đợi <b><font color = "red">'. ($submitTime - (strtotime(date('Y-m-d H:i:s')) - $lastsubmit)) . '</font></b>s nữa mới được submit tiếp.';
+               $err = 'Bạn submit quá nhanh. Bạn phải đợi <b><font color = "red">'. ($submitTime - (strtotime(date('Y-m-d H:i:s')) - $lastsubmit)) . '</font></b>s nữa mới được submit tiếp bài <font color = "green"><b>'.$ten.'.'.$file.'</b></font>.';
             }
             else if (((date_timestamp_get($startTime) + $duringTime*60 - time() > 0)) || ($duringTime == 0)){
 
               //update time
-             $_SESSION['lastsubmit'] = strtotime(date('Y-m-d H:i:s'));
+             $_SESSION['prb'.$ten.$file] = strtotime(date('Y-m-d H:i:s'));
 
 
               $username = $_SESSION['tuser'];
@@ -473,8 +475,3 @@ for($i = 2; $i < sizeof($files1); $i++) {
 echo '</tr></table>';
 ?>
 </div>
-
-
-
-
-
