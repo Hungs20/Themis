@@ -121,7 +121,7 @@ body#login .subLoginForm{display: none;}
     <div class="navbar-collapse collapse">
       <div class="navbar-form navbar-right"> 
         <a class="btn btn-success" href="/index.php" title="Trang chủ"><span class = "glyphicon glyphicon-home text-danger"></span> Home</a>
-           <a class="btn btn-success" href="/chatbox" title="Chatbox"><span class = "glyphicon glyphicon-comment text-danger"></span> Chatbox <?php echo '<span class="badge"><font color = "red"><b>'.$numchat.'</b></font></span>'; ?></a>
+           <a class="btn btn-success" href="/chatbox/" title="Chatbox"><span class = "glyphicon glyphicon-comment text-danger"></span> Chatbox <?php echo '<span class="badge"><font color = "red"><b>'.$numchat.'</b></font></span>'; ?></a>
         <a class="btn btn-success" href="ranking.php" title="Rank"><span class = "glyphicon glyphicon-stats glyphicon-stats text-danger"></span> Rank</a>
            <a class="btn btn-success" href="/sms.php" title="Sms"><span class = "glyphicon glyphicon-envelope text-danger"></span> Sms <?php echo '<span class="badge"><font color = "red"><b>'.$newmess.'</b></font></span>'; ?></a>
         <a class="btn btn-success" href="repass.php" title="Đổi mật khẩu"><span class = "glyphicon glyphicon-user text-danger"></span> Thí sinh: <?php echo $_SESSION['tname']; ?></a> 

@@ -4,21 +4,18 @@
     include("../functions.php");
 
 ?>
-    
-
-    <doctype html>
+    <!DOCTYPE html>
+    <html>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <head>
     <title>Chatbox</title>
 
     <!-- loading -->
 
-    <script src="../js/jquery-latest.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/pace.min.js"></script>
-    <link rel="stylesheet" href="/css/pace-theme-minimal.css">
+    <link rel="stylesheet" href="../css/pace-theme-minimal.css">
     <!--end load-->
     <link type="text/css" rel="stylesheet" href="style.css" />
     <!-- Bootstrap core CSS -->
@@ -26,7 +23,7 @@
     <link href="../css/jumbotron.css" rel="stylesheet">
 
     </head>
-
+    <body>
     <div id="wrapper">
         <div id="menu">
             <p class="welcome">Welcome, <b><?php echo $_SESSION['tname']; ?></b></p>
@@ -59,11 +56,13 @@
   </center>
 
     </div>
-    <script type="text/javascript" src="jquery.min.js"></script>
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <style type="text/css">img{
-    max-width: 100px;
-    max-height:100px;}</style>
-    <script type="text/javascript">
+        max-width: 100px;
+        max-height:100px;}
+    </style>
+     <script type="text/javascript">
     // jQuery Document
     var prvtime = 0;
     $(document).ready(function(){
@@ -92,11 +91,11 @@
                 $.post("post.php", {text: clientmsg});    
                 prvtime = Date.parse(dt);
                 }          
-            $("#usermsg").attr("value", "");
+           // $("#usermsg").attr("value", "");
+             document.getElementById('text').value = "";
             return false;
         });
-
-       	function loadLog(){
+        function loadLog(){
             var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
             $.ajax({
                 url: "log.html",
@@ -112,4 +111,8 @@
                 },
             });
         }
-    setInterval("loadLog() ",1000); </script>
+    setInterval("loadLog() ",1000);
+         </script>
+
+   </body>
+   </html>
