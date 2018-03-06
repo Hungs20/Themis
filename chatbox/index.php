@@ -14,6 +14,7 @@
 
     <!-- loading -->
 
+    <script type="text/javascript" src="jquery-latest.js"></script>
     <script src="../js/pace.min.js"></script>
     <link rel="stylesheet" href="../css/pace-theme-minimal.css">
     <!--end load-->
@@ -57,7 +58,6 @@
 
     </div>
 
-    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <style type="text/css">img{
         max-width: 100px;
         max-height:100px;}
@@ -91,8 +91,8 @@
                 $.post("post.php", {text: clientmsg});    
                 prvtime = Date.parse(dt);
                 }          
-           // $("#usermsg").attr("value", "");
-             document.getElementById('text').value = "";
+             document.getElementById('usermsg').value = "";
+
             return false;
         });
         function loadLog(){
@@ -102,12 +102,10 @@
                 cache: false,
                 success: function(html){        
                     $("#chatbox").html(html); //Insert chat log into the #chatbox div   
-
-                    //Auto-scroll           
-                    var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
-                    if(newscrollHeight > oldscrollHeight){
-                        $("#chatbox").animate({ scrollTop: newscrollHeight }, "normal"); //Autoscroll to bottom of div
-                    }               
+              $('#chatbox').stop ().animate ({
+  scrollTop: $('#chatbox')[0].scrollHeight
+});
+            
                 },
             });
         }
