@@ -47,6 +47,18 @@ if (is_dir($dir)) if ($dh = opendir($dir)) {
   }
   closedir($dh);
 }
+
+/// get max score 
+if($penalty)
+{
+  $maxscore = array();
+  for ($i = 0; $i < $cntc; ++$i)
+    for ($j = 0; $j < $cntp; ++$j)
+      {
+        $maxscore[$problems[$j]] = max($maxscore[$problems[$j]], $data[$cttants[$i]][$problems[$j]]);
+      }
+}
+
 function getpen($username, $problem)
 {
   if($GLOBALS['penalty']){
@@ -62,7 +74,7 @@ function getpen($username, $problem)
     if($num > 0) return ' <small><u><font color = "#000000" size = "2px">'.$num.'</font></u></small>';
   }
 }
-function get_score_pen($username, $problem, $score)
+function get_score_pen($username, $problem, $score, $max_score)
 {
   if($GLOBALS['penalty']){
     $dir = './'.$GLOBALS['penDir'];
@@ -73,7 +85,8 @@ function get_score_pen($username, $problem, $score)
         if(!stripos($files1[$i], $filename)) continue;
         $num++;
     }
-    if($score) return number_format($score - number_format($GLOBALS['score_pen'], 2) * max(0, (number_format($num, 2) - 1)), 2);
+    if($score) return number_format($score - $GLOBALS['score_pen'] * max(0, number_format($num - 1, 2)) * number_format($max_score/100,2) , 2);
+
   }
 }
 ?>
@@ -112,7 +125,7 @@ function get_score_pen($username, $problem, $score)
           for ($i = 0; $i < $cntc; ++$i)
           for ($j = 0; $j < $cntp; ++$j)
           if ($data[$cttants[$i]][$problems[$j]] != "...") {
-            if($penalty) $data[$cttants[$i]][$problems[$j]] = get_score_pen($cttants[$i], $problems[$j], $data[$cttants[$i]][$problems[$j]] );
+            if($penalty) $data[$cttants[$i]][$problems[$j]] = get_score_pen($cttants[$i], $problems[$j], $data[$cttants[$i]][$problems[$j]], $maxscore[$problems[$j]] );
             $sum[$cttants[$i]] += $data[$cttants[$i]][$problems[$j]];
             }
           for ($i = 0; $i < $cntc; ++$i) // SORT CONTESTANTS
