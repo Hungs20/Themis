@@ -27,7 +27,7 @@
 	//1: Công bố kết quả sau khi chấm, 0: không công bố.
 	$publish = 1;
 	// Time giới hạn submit, 0: không giới hạn, tính theo giây.
-	$submitTime = 60;
+	$submitTime = 30;
 	// Penalty score , 0: false, 1 : true.
 	$penalty = 1; 
 	// score penalty

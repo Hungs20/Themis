@@ -47,8 +47,8 @@ if (isset($_POST['username'])) {
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Đăng nhập &middot; Chấm bài trực tuyến</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -115,7 +115,7 @@ if (isset($_POST['username'])) {
       <form class="form-signin" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
         <h2 class="form-signin-heading">Đăng nhập</h2>
         <input type="text" name="username" class="input-block-level" placeholder="Tài khoản" <?php if (isset($_COOKIE['cooktname'])) echo "value='".$_COOKIE['cooktname']."'";?>>
-        <input type="password" name="password" class="input-block-level" placeholder="Mật khẩu" <?php if (isset($_COOKIE['cooktpass'])) echo "value='".$_COOKIE['cooktpass']."'";?>">
+        <input type="password" name="password" class="input-block-level" placeholder="Mật khẩu" <?php if (isset($_COOKIE['cooktpass'])) echo "value='".$_COOKIE['cooktpass']."'";?>>
         <label class="checkbox">
           <input type="checkbox" name="remember" value="remember" <?php if (isset($_COOKIE['cooktname'])) echo "checked='checked'" ?>> Nhớ mật khẩu
         </label>
@@ -128,7 +128,6 @@ if (isset($_POST['username'])) {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.min.js"></script>
 
   </body>
 </html>

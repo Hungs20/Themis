@@ -1,10 +1,5 @@
-﻿
-
-<!-- loading -->
-
-<script src="js/pace.min.js"></script>
+﻿<script src="js/pace.min.js"></script>
 <link rel="stylesheet" href="/css/pace-theme-minimal.css">
-<!--end load-->
 <?php
 include("config.php");
 include("functions.php");
@@ -90,38 +85,27 @@ function get_score_pen($username, $problem, $score, $max_score)
   }
 }
 ?>
-
 <!DOCTYPE HTML PUBLIC>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Bảng điểm</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="15" />
-  <!--CombineResourcesFilter-->
-  <link rel="stylesheet" href="../css_hy/clear.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="../css_hy/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="../css_hy/datatable.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="../css_hy/table-form.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="../css_hy/user.css" type="text/css" charset="utf-8"/>
-  <style type="text/css">body{font-family: Consolas;font-size: 18px;}
-  .standings{font-size: 18px;}
-  .score { opacity: .8;}
-  .score:hover{
-    opacity: 1.0;
-}
-  }
-</style>
+<meta charset="utf-8">
+<title>Bảng điểm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="15" />
+<link rel="stylesheet" href="../css_hy/clear.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../css_hy/style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../css_hy/datatable.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../css_hy/table-form.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../css_hy/user.css" type="text/css" charset="utf-8"/>
+<style type="text/css">body{font-family:Consolas;font-size:18px}.standings{font-size:18px}.score{opacity:.8}.score:hover{opacity:1.0}}</style>
 </head>
-<body> 
-  <div id="body">
-    <div class='datatable' style='background-color: #E1E1E1; padding-bottom: 3px;position:absolute '>
-
-      <div style="padding: 4px 0 0 6px;font-size:1em;position:relative;"> <h2 style="color:#445f9d;margin-left:10px">Bảng xếp hạng</h2> </div>
-
-      <div style="background-color: white;margin:0.3em 3px 0 3px;position:relative;">
-        <table class="standings">
-          <?php function swap(&$xm, &$ym){ $tmp = $xm; $xm = $ym; $ym = $tmp; }
+<body>
+<div id="body">
+<div class='datatable' style='background-color:#e1e1e1;padding-bottom:3px;position:absolute'>
+<div style="padding:4px 0 0 6px;font-size:1em;position:relative"> <h2 style="color:#445f9d;margin-left:10px">Bảng xếp hạng</h2> </div>
+<div style="background-color:white;margin:.3em 3px 0 3px;position:relative">
+<table class="standings">
+<?php function swap(&$xm, &$ym){ $tmp = $xm; $xm = $ym; $ym = $tmp; }
           for ($i = 0; $i < $cntc; ++$i)
           for ($j = 0; $j < $cntp; ++$j)
           if ($data[$cttants[$i]][$problems[$j]] != "...") {
@@ -136,14 +120,13 @@ function get_score_pen($username, $problem, $score, $max_score)
           for ($j = $i + 1; $j < $cntp; ++$j)
           if ($problems[$i] > $problems[$j])
           swap ($problems[$i], $problems[$j]); ?>
-          <tr>
-          <th style='color:#445f9d; min-width:40px'>#</th>
-          <th style='text-align:left;min-width:250px;color:#445f9d;'> <h3> Thí Sinh </h3> </th>
-          <th style='color:#445f9d;min-width:80px'> <h4> Tổng </h4> </th>
-          <?php for ($i = 0; $i < $cntp; ++$i) echo "<th style='min-width:95px;'>".$problems[$i]."</th>"; ?> 
-          </tr>
-
-          <?php for ($i = 0; $i < $cntc; ++$i) {
+<tr>
+<th style='color:#445f9d;min-width:40px'>#</th>
+<th style='text-align:left;min-width:250px;color:#445f9d'> <h3> Thí Sinh </h3> </th>
+<th style='color:#445f9d;min-width:80px'> <h4> Tổng </h4> </th>
+<?php for ($i = 0; $i < $cntp; ++$i) echo "<th style='min-width:95px;'>".$problems[$i]."</th>"; ?>
+</tr>
+<?php for ($i = 0; $i < $cntc; ++$i) {
           $cl = "user-newbie";
           if ($i < 12) $cl = "user-beginner";
           if ($i < 6) $cl = $color[min($i, 7)];
@@ -169,11 +152,9 @@ function get_score_pen($username, $problem, $score, $max_score)
             }
             echo "</tr>"; 
           } ?>
-        </table>
-      </div>
-	  
-   
-	</div> 
-  </div> 
+</table>
+</div>
+</div>
+</div>
 </body>
 </html>

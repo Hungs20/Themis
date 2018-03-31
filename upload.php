@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	include("init.php");
 	include("config.php");
 ?>
