@@ -71,29 +71,130 @@
 <script src=js/bootstrap.js></script>
 <script src=js/alert.js></script>
 <style>body{font-family:consolas}.CodeMirror{border:2px inset #dee}body{font-family:consolas;font-size:13px;line-height:18px;padding-top:50px;background:#f4f4fe;color:#000;background:#b2dfda url('/images/bg.gif') 0 50px fixed no-repeat}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:#f5f5f5;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);border:0 solid #000}::-webkit-scrollbar-thumb{background:#07F}::-webkit-scrollbar-thumb:hover{background:#09F}::-webkit-scrollbar-thumb:active{background:#888;-webkit-box-shadow:inset 1px 1px 2px rgba(0,0,0,.3)}:focus{outline:0}textarea{resize:vertical}ul,li{margin:0;padding:0}li{list-style:none}.icon{padding:3px 6px 3px 1px;vertical-align:middle}.icon-inline{padding-right:6px;vertical-align:middle}img{max-width:100%}body#login .subLoginForm{display:none}#body{padding-top:15px;padding-bottom:15px;background:transparent url('/images/bg.png') scroll top left repeat}@media(min-width:992px){#body{margin-bottom:40px}}</style>
-<div class="navbar navbar-inverse navbar-fixed-top" role=navigation>
+<style> .modal-content {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 6px;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 40px rgba(0,0,0,.5);
+    box-shadow: 0 0 40px rgba(0,0,0,.5);
+    color: #000;
+    background-color: #fff;
+    border: rgba(0,0,0,0);
+}
+.modal-message .modal-dialog {
+    width: 300px;
+}
+.modal-message .modal-body, .modal-message .modal-footer, .modal-message .modal-header, .modal-message .modal-title {
+    background: 0 0;
+    border: none;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center!important;
+}
+
+.modal-message .modal-title {
+    font-size: 17px;
+    color: #737373;
+    margin-bottom: 3px;
+}
+
+.modal-message .modal-body {
+    color: #737373;
+}
+
+.modal-message .modal-header {
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 15px 0 8px;
+}
+.modal-message .modal-header .fa, 
+.modal-message .modal-header 
+.glyphicon, .modal-message 
+.modal-header .typcn, .modal-message .modal-header .wi {
+    font-size: 30px;
+}
+
+.modal-message .modal-footer {
+    margin: 25px 0 20px;
+    padding-bottom: 10px;
+}
+
+.modal-backdrop.in {
+    zoom: 1;
+    filter: alpha(opacity=75);
+    -webkit-opacity: .75;
+    -moz-opacity: .75;
+    opacity: .75;
+}
+.modal-backdrop {
+    background-color: #fff;
+}
+.modal-message.modal-success .modal-header {
+    color: #53a93f;
+    border-bottom: 3px solid #a0d468;
+}
+
+.modal-message.modal-info .modal-header {
+    color: #57b5e3;
+    border-bottom: 3px solid #57b5e3;
+}
+
+.modal-message.modal-danger .modal-header {
+    color: #d73d32;
+    border-bottom: 3px solid #e46f61;
+}
+
+.modal-message.modal-warning .modal-header {
+    color: #f4b400;
+    border-bottom: 3px solid #ffce55;
+}
+</style>
+<style>nav.navbar-findcond { background: #000; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
+nav.navbar-findcond a { color: #ccc; }
+nav.navbar-findcond ul.navbar-nav a { color: #fff; border-style: solid; border-width: 0 0 2px 0; border-color: #000; }
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:visited,
+nav.navbar-findcond ul.navbar-nav a:focus,
+nav.navbar-findcond ul.navbar-nav a:active { background: #428bca; }
+nav.navbar-findcond ul.navbar-nav a:hover { border-color: #f14444; color: yellow; font-weight: bolder; }
+nav.navbar-findcond li.divider { background: #ccc; }
+nav.navbar-findcond button.navbar-toggle { background: #f14444; border-radius: 2px; }
+nav.navbar-findcond button.navbar-toggle:hover { background: #999; }
+nav.navbar-findcond button.navbar-toggle > span.icon-bar { background: #fff; }
+nav.navbar-findcond ul.dropdown-menu { border: 0; background: #fff; border-radius: 4px; margin: 4px 0; box-shadow: 0 0 4px 0 #ccc; }
+nav.navbar-findcond ul.dropdown-menu > li > a { color: #444; }
+nav.navbar-findcond ul.dropdown-menu > li > a:hover { background: #f14444; color: #fff; }
+nav.navbar-findcond span.badge { background: #f14444; font-weight: normal; font-size: 11px; margin: 0 4px; }
+nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
+</style>
+<nav class="navbar navbar-findcond navbar-fixed-top" role=navigation>
 <div class=container>
 <div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=#>&middot; Hệ thống nộp bài trực tuyến.</a>
+  <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse>
+    <span class=sr-only>Toggle navigation</span>
+    <span class=icon-bar></span>
+    <span class=icon-bar></span>
+    <span class=icon-bar></span>
+  </button>
+  <a class=navbar-brand href=#>&middot; Hệ thống nộp bài trực tuyến.</a>
 </div>
 <div class="navbar-collapse collapse">
 <div class="navbar-form navbar-right">
-<a class="btn btn-success" href=/index.php title="Trang chủ"><span class="glyphicon glyphicon-home text-danger"></span> Home</a>
-<a class="btn btn-success" href=/chatbox/ title=Chatbox><span class="glyphicon glyphicon-comment text-danger"></span> Chatbox <?php echo '<span class="badge"><font color = "red"><b>'.$numchat.'</b></font></span>'; ?></a>
-<a class="btn btn-success" href=ranking.php title=Rank><span class="glyphicon glyphicon-stats glyphicon-stats text-danger"></span> Rank</a>
-<a class="btn btn-success" href=/sms.php title=Sms><span class="glyphicon glyphicon-envelope text-danger"></span> Sms <?php echo '<span class="badge"><font color = "red"><b>'.$newmess.'</b></font></span>'; ?></a>
-<a class="btn btn-success" href=repass.php title="Đổi mật khẩu"><span class="glyphicon glyphicon-user text-danger"></span> Thí sinh: <?php echo $_SESSION['tname']; ?></a>
-<a class="btn btn-success" href=logout.php title=logout><span class="glyphicon glyphicon-off text-danger"></span> Thoát</a>
+<ul class="nav navbar-nav">
+<li role="presentation"><a href=/index.php title="Trang Chủ" ><span class="glyphicon glyphicon-home text-success"></span> Home</a></li>
+<li role="presentation"><a href=/chatbox/ title="Phòng Chat"><span class="glyphicon glyphicon-comment text-success"></span> Chatbox <?php echo '<span class="badge new"><b>'.$numchat.'</b></span>'; ?></a></li>
+<li role="presentation"><a href=ranking.php title="Bảng Rank"><span class="glyphicon glyphicon-stats glyphicon-stats text-success"></span> Rank</a></li>
+<li role="presentation"><a href=/sms.php title="Tin Nhắn"><span class="glyphicon glyphicon-envelope text-success"></span> Sms <?php if($newmess) { echo '<span class="badge new"><b>'.$newmess.'</b></span>'; }?></a></li>
+<li role="presentation"><a href=repass.php title="Đổi mật khẩu"><span class="glyphicon glyphicon-user text-success"></span> Thí sinh: <?php echo $_SESSION['tname']; ?></a></li>
+<li role="presentation"><a href=logout.php title="Đăng Xuất"><span class="glyphicon glyphicon-off text-success"></span> Thoát</a></li></ul>
 </div>
 </div>
 </div>
-</div>
+</nav>
 <div id=body class="maintxt container">
 <textarea style=display:none id=codecpp>#include <iostream>
 using namespace std;
@@ -127,54 +228,58 @@ class Ideone
 <?php
 
 
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit']))
+    {
         $ten=$_POST['ten'];
         $str=preg_replace('/[^a-z0-9]+/i','',$ten);
-          $code=$_POST['code'];
-          $code = str_replace("system", "sistem", $code);
-          $file=$_POST['file'];
+        $code=$_POST['code'];
+        $code = str_replace("system", "sistem", $code);
+        $file=$_POST['file'];
         if($str != $ten) $ten = '';
-        if(!$ten || !$code){
+        if(!$ten || !$code)
+        {
             $err = "Tên bài hoặc code không hợp lệ.";
         }
-         else if($file != 'cpp' && $file != 'pas' && $file != 'java')
-          {
-             $err = "Tên file không hợp lệ.";
-          }
-        else{
-
+        else if($file != 'cpp' && $file != 'pas' && $file != 'java')
+        {
+          $err = "Tên file không hợp lệ.";
+        }
+        else
+        {
           $lastsubmit = $_SESSION['prb'.$ten.$file];
           if(strtotime(date('Y-m-d H:i:s')) - $lastsubmit < $submitTime)
+          {
+            $err = 'Bạn nộp quá nhanh. Bạn phải đợi <b><font color = "red">'. ($submitTime - (strtotime(date('Y-m-d H:i:s')) - $lastsubmit)) . '</font></b>s nữa mới được nộp tiếp bài <font color = "green"><b>'.$ten.'.'.$file.'</b></font>.';
+          }
+          else if (((date_timestamp_get($startTime) + $duringTime*60 - time() > 0) && date_timestamp_get($startTime) <= time()) || ($duringTime == 0))
+          {
+            //update time
+            $_SESSION['prb'.$ten.$file] = strtotime(date('Y-m-d H:i:s'));
+            $username = $_SESSION['tuser'];
+            $fname = $uploadDir."/".$user['id']."[".$username."][".$ten."].".$file;
+            $hname = $hisDir."/".$user['id']."[".$username."][".$ten."].".$file;
+            $fmake = fopen($fname,'w');
+            $hmake = fopen($hname, 'w');
+            fwrite($hmake, $code);
+            fwrite($fmake,$code);
+            fclose($hmake);
+            fclose($fmake);
+            if($penalty)
             {
-               $err = 'Bạn submit quá nhanh. Bạn phải đợi <b><font color = "red">'. ($submitTime - (strtotime(date('Y-m-d H:i:s')) - $lastsubmit)) . '</font></b>s nữa mới được submit tiếp bài <font color = "green"><b>'.$ten.'.'.$file.'</b></font>.';
+              $pen = $penDir . "/". strtotime(date('Y-m-d H:i:s'))."[".$user['username']."][".$ten."].".$file;
+              $hpen = fopen($pen, 'w');
+              fwrite($hpen, $code);
+              fclose($hpen);
             }
-            else if (((date_timestamp_get($startTime) + $duringTime*60 - time() > 0)) || ($duringTime == 0)){
-
-              //update time
-             $_SESSION['prb'.$ten.$file] = strtotime(date('Y-m-d H:i:s'));
-
-
-              $username = $_SESSION['tuser'];
-              $fname = $uploadDir."/".$user['id']."[".$username."][".$ten."].".$file;
-                $hname = $hisDir."/".$user['id']."[".$username."][".$ten."].".$file;
-                $fmake = fopen($fname,'w');
-                $hmake = fopen($hname, 'w');
-                fwrite($hmake, $code);
-                fwrite($fmake,$code);
-                fclose($hmake);
-                fclose($fmake);
-                if($penalty)
-        {
-          $pen = $penDir . "/". strtotime(date('Y-m-d H:i:s'))."[".$user['username']."][".$ten."].".$file;
-          $hpen = fopen($pen, 'w');
-          fwrite($hpen, $code);
-          fclose($hpen);
-        }
-      $message = "Nộp bài thành công.";
+            $message = "Nộp bài thành công.";
+          } 
+          else if (date_timestamp_get($startTime) > time())
+          {
+            $message = "Chưa đến giờ nộp bài!";
           }
           else
           {
-            $err = "Nộp bài không thành công. Đã hết thời gian nộp bài!";
+            $err = "Đã hết thời gian nộp bài!";
           }
         }
     }
@@ -194,33 +299,44 @@ class Ideone
 <br>
 <?php
 if($err){
-  echo '<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning! </strong>'.$err.'</div>';
+    ?>
+  <div class="modal modal-message modal-warning fade" id="warningModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"><i class="glyphicon glyphicon-warning-sign"></i></div>
+      <div class="modal-body">
+        <h4><?php echo $err; ?></h4>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php
 }
 if($message){
   ?>
-<div class="modal fade" id=exampleModal tabindex=-1 role=dialog aria-labelledby=exampleModalLabel aria-hidden=true>
-<div class=modal-dialog role=document>
-<div class=modal-content>
-<div class="modal-header list-group-item active">
-<center><h3 class=modal-title id=exampleModalLabel>Thông báo</h3></center>
-<button type=button class=close data-dismiss=modal aria-label=Close>
-<span aria-hidden=true><font color=red>&times;</font></span>
-</button>
+<div class="modal modal-message modal-success fade" id="successModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="modal-body">
+        <h4><?php echo $message; ?></h4>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div class=modal-body>
-<h4><?php echo $message; ?></h4>
-</div>
-<div class=modal-footer>
-<button type=button class="btn btn-primary" data-dismiss=modal>Close</button>
-</div>
-</div>
-</div>
-</div>
-<script>$("#exampleModal").modal("show");$("#exampleModal").on("hidden.bs.modal",function(){window.location="/index.php"});$(document).keyup(function(a){if(a.keyCode){$("#exampleModal").modal("hide")}});</script>
 <?php
 }
 ?>
+<script>
+  $("#successModal").modal("show");$("#successModal").on("hidden.bs.modal",function(){window.location="/index.php"});$(document).keyup(function(a){if(a.keyCode){$("#successModal").modal("hide")}});
+  $("#warningModal").modal("show");$(document).keyup(function(a){if(a.keyCode){$("#successModal").modal("hide")}});
+</script>
 <center><h2>Code</h2></center> <br>
 <div><textarea name=code id=cpp-code class=form-control>
 #include <iostream>
@@ -258,7 +374,7 @@ int main() {
 ?>
 <script>var data=<?php echo json_encode($arr); ?>;function do_something(a,b){var c=data[a+b];editor.setValue("");insertTextAtCursor(editor,c);document.getElementById("fnames").value=a;if(b==".cpp"){editor.setOption("mode","text/x-c++src")}else{if(b==".pas"){editor.setOption("mode","text/x-pascal")}else{if(b==".java"){editor.setOption("mode","text/x-java")}}}};</script>
 <?php
-echo '<br/><br/><center><h4>Danh sách các bài đã nộp :</h4></center><br/><table class="table table-condensed" style = "font-size:16px;"><tr class = "info">';
+echo '<br/><br/><center><h4>Danh sách các bài đã nộp :</h4></center><br/><div class="table-responsive"><table class="table table-condensed" style = "font-size:16px;"><tr class = "info">';
 $dir    = './'.$hisDir;
 $files1 = scandir($dir);
 $ok = 0;
@@ -276,6 +392,11 @@ for($i = 2; $i < sizeof($files1); $i++) {
     echo "'".$name."','".$file."'";
     echo ')"><b>'.strtoupper($name).'</b></a></td>';
     }
-echo '</tr></table>';
+echo '</tr></table></div>';
 ?>
 </div>
+<footer>
+<div id="body" class="maintxt container">
+<p><?php echo $footer; ?></p>
+</div>
+</footer>

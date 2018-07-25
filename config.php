@@ -4,7 +4,7 @@
 	//Mô tả kỳ thi
 	$description = "Chuyên Hạ Long";
 	//footer
-	$footer = '<i>Copyright © <a href = "http://fb.com/hungs20"><font color = "red"><b>Hungs20</b></font></a><br/>IT <font color = "blue"><b>15 - 18</b></font> Chuyên Hạ Long</i>';
+	$footer = '<i>Copyright © <a href = "http://fb.com/hungs20"><font color = "red"><b>Hungs20</b></font></a><br/>IT <font color = "blue"><b>15 - 18</b></font> Chuyên Hạ Long</i>'; /// vui lòng tôn trọng quyền tác giả!
 	//Thư mục chưa đề (định dạng pdf, jpg hoặc zip)
 	$problemsDir = "contests/problems";
 	//Tên file đề tổng hợp
@@ -21,7 +21,7 @@
 	$hisDir = "contests/submit/History";
 	$penDir = "contests/submit/Penalty";
 	//Thời gian bắt đầu kỳ thi (theo định dạng bên dưới)
-	$startTime = date_create("2017-09-26 23:00:00",timezone_open("Asia/Bangkok")); //YYYY-MM-DD HH:MM:SS
+	$startTime = date_create("2018-07-25 9:00:00",timezone_open("Asia/Bangkok")); //YYYY-MM-DD HH:MM:SS
 	//Thời gian làm bài - (đặt 0: không giới hạn, tính theo phút)
 	$duringTime = 0;
 	//1: Công bố kết quả sau khi chấm, 0: không công bố.
