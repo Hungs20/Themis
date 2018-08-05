@@ -3,6 +3,7 @@
 * Web được viết bằng ngôn ngữ php, dễ dàng sử dụng và cài đặt trên các webserver.
 * Giao diện Bootstrap chuẩn reponsive , style thân thiện
 * Chức năng gồm : IDE, Chatbox, Sms, Bảng Rank, Status...
+* Demo online: [http://itchl.cf](http://itchl.cf "Demo") ( User: Hungs20 Pass: a)
 * **Made by [Hungs20](http://fb.com/hungs20 "Chu Văn Hưng")** ***IT 15-18 Chuyên Hạ Long***
 
 ![Trang chủ](https://user-images.githubusercontent.com/20833690/43200380-9f9b0b50-903f-11e8-9add-228cd201805b.png)
