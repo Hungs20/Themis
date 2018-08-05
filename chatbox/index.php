@@ -1,8 +1,5 @@
 <?php
     include("../init.php");
-    include("../config.php");
-    include("../functions.php");
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,12 +8,11 @@
 <meta http-equiv=Content-Type content="text/html; charset=UTF-8"/>
 <head>
 <title>Chatbox</title>
-<script type=text/javascript src=jquery-latest.js></script>
-<script src=../js/pace.min.js></script>
 <link rel=stylesheet href=../css/pace-theme-minimal.css>
 <link type=text/css rel=stylesheet href=style.css />
 <link href=../css/bootstrap.css rel=stylesheet>
 <link href=../css/jumbotron.css rel=stylesheet>
+<style type=text/css>img{max-width:100px;max-height:100px}</style>
 </head>
 <body>
 <div id=wrapper>
@@ -43,8 +39,11 @@
 </form>
 </center>
 </div>
-<style type=text/css>img{max-width:100px;max-height:100px}</style>
+<script type=text/javascript src=jquery-latest.js></script>
 <script type=text/javascript>var prvtime=0;$(document).ready(function(){});</script>
-<script type=text/javascript>$(document).ready(function(){$("#chatbox").animate({scrollTop:$("#chatbox").get(0).scrollHeight},2000)});$(document).ready(function(){$("#exit").click(function(){var a=confirm("Exit Chatbox ???");if(a==true){window.location="/index.php"}})});$("#submitmsg").click(function(){var a=$("#usermsg").val();var b=new Date();if(Date.parse(b)-prvtime<=5*1000){alert("Bạn chat quá nhanh! Đợi "+(6-(Date.parse(b)-prvtime)/1000)+"s nữa.")}else{if(a.length<=4){alert("Quá ngắn. Độ dài phải >= 5")}else{$.post("post.php",{text:a});prvtime=Date.parse(b)}}document.getElementById("usermsg").value="";return false});function loadLog(){var a=$("#chatbox").attr("scrollHeight")-20;$.ajax({url:"log.html",cache:false,success:function(b){$("#chatbox").html(b);$("#chatbox").stop().animate({scrollTop:$("#chatbox")[0].scrollHeight})},})}setInterval("loadLog() ",1000);</script>
+<script type=text/javascript>
+	$(document).ready(function(){$("#chatbox").animate({scrollTop:$("#chatbox").get(0).scrollHeight},2000)});
+	$(document).ready(function(){$("#exit").click(function(){var a=confirm("Exit Chatbox ???");if(a==true){window.location="/index.php"}})});$("#submitmsg").click(function(){var a=$("#usermsg").val();var b=new Date();if(Date.parse(b)-prvtime<=5*1000){alert("Bạn chat quá nhanh! Đợi "+(6-(Date.parse(b)-prvtime)/1000)+"s nữa.")}else{if(a.length<=4){alert("Quá ngắn. Độ dài phải >= 5")}else{$.post("post.php",{text:a});prvtime=Date.parse(b)}}document.getElementById("usermsg").value="";return false});function loadLog(){var a=$("#chatbox").attr("scrollHeight")-20;$.ajax({url:"log.html",cache:false,success:function(b){$("#chatbox").html(b);$("#chatbox").stop().animate({scrollTop:$("#chatbox")[0].scrollHeight})},})}setInterval("loadLog() ",1000);</script>
+<script src=../js/pace.min.js></script>
 </body>
 </html>
