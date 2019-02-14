@@ -3,7 +3,7 @@
 * Web được viết bằng ngôn ngữ php, dễ dàng sử dụng và cài đặt trên các webserver.
 * Giao diện Bootstrap chuẩn reponsive , style thân thiện
 * Chức năng gồm : IDE, Chatbox, Sms, Bảng Rank, Status...
-* Lưu ý: Code chạy tốt nhất trên phiên bản php 5.4
+* Lưu ý: Code chạy tốt nhất trên phiên bản php 5.6
 * Demo online: [http://itchl.000webhostapp.com](http://itchl.000webhostapp.com "Demo") ( User: Hungs20 Pass: a)
 * Nếu có bug xin báo lại [tại đây](https://github.com/Hungs20/Themis/issues/1) để mình fix nhé.
 * **Made by [Hungs20](http://fb.com/hungs20 "Chu Văn Hưng")** ***IT 15-18 Chuyên Hạ Long***
