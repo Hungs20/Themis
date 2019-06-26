@@ -12,7 +12,7 @@ $data = $log = $ac = array(array());
 $color = array("user-grandmaster", "user-hacker", "user-master", "user-expert", "user-coder", "user-novice");
 if (is_dir($dir)) if ($dh = opendir($dir)) {
   while ($file = readdir($dh)) if ($file!="." && $file!=".." && $file != "<") {
-    if (filemtime($dir.$file) < $begintime) continue;
+    //if (filemtime($dir.$file) < $begintime) continue;
     $handle = @fopen($dir.$file, "r");
     if ($handle && !feof($handle)) { 
       $content = fgets($handle, 100); fclose($handle); 

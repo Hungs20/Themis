@@ -33,15 +33,25 @@
 	// score penalty
 	$score_pen = 0.1;
 	// num chat
+	
 	 $file=@fopen('chatbox/log.txt', 'r');
      $numchat = fread($file,filesize('chatbox/log.txt'));
      if(!$numchat) $numchat = 0;
      if(filesize('chatbox/log.html') == 0) $numchat = 0;
      fclose($file);
      // new message
-     $file=@fopen('sms/new/'.$user['username'].'.txt', 'r');
-     $newmess = fread($file,filesize('sms/new/'.$user['username'].'.txt'));
-     if(!$newmess) $newmess = 0;
-     if(filesize('sms/new/'.$user['username'].'.txt') == 0) $newmess = 0;
-     fclose($file);
+	 if (isset($_SESSION['tuser'])) {
+		$user['id'] = $_SESSION['tid'];
+		$user['username'] = $_SESSION['tuser'];
+		$user['password'] = $_SESSION['tpass'];
+		$file=@fopen('sms/new/'.$user['username'].'.txt', 'r');
+		$newmess = 0;
+		if($file){
+		$newmess = fread($file,filesize('sms/new/'.$user['username'].'.txt'));
+		 if(!$newmess) $newmess = 0;
+		 if(filesize('sms/new/'.$user['username'].'.txt') == 0) $newmess = 0;
+		 fclose($file);
+		}
+	}
+     
 ?>
