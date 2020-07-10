@@ -66,6 +66,7 @@
 <script src=/ide/addon/hint/show-hint.js></script>
 <script src=/ide/mode/clike/clike.js></script>
 <script src=/ide/mode/pascal/pascal.js></script>
+<script src=/ide/mode/python.js></script>
 <link href=css/bootstrap.css rel=stylesheet>
 <link href=css/jumbotron.css rel=stylesheet>
 <script src=js/bootstrap.js></script>
@@ -228,7 +229,57 @@ class Ideone
     
 print "Hello World!\n"
 </textarea>
-<script>function setCookie(b,f,c){var e=new Date();e.setTime(e.getTime()+(c*24*60*60*1000));var a="expires="+e.toUTCString();document.cookie=b+"="+f+";"+a+";path=/"}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)}if(f.indexOf(b)==0){return f.substring(b.length,f.length)}}return""}function insertTextAtCursor(a,d){var b=a.getDoc();var c=b.getCursor();b.replaceRange(d,c)}var test0=document.getElementById("codecpp").value;var test1=document.getElementById("codepas").value;var test2=document.getElementById("codejava").value;var test3=document.getElementById("codepy").value;function change(){var a=document.add.file.value;if(a=="cpp"){editor.setValue("");insertTextAtCursor(editor,test0);editor.setOption("mode","text/x-c++src")}else{if(a=="pas"){editor.setValue("");insertTextAtCursor(editor,test1);editor.setOption("mode","text/x-pascal")}else{if(a=="py"){editor.setValue("");insertTextAtCursor(editor,test3);editor.setOption("mode","text/x-python")}else{if(a=="java"){editor.setValue("");insertTextAtCursor(editor,test2);editor.setOption("mode","text/x-java")}}}}</script>
+<script>
+function setCookie(b,f,c){
+	var e=new Date();
+	e.setTime(e.getTime()+(c*24*60*60*1000));
+	var a="expires="+e.toUTCString();document.cookie=b+"="+f+";"+a+";path=/"
+}
+function getCookie(d){
+	var b=d+"=";
+	var a=document.cookie.split(";");
+	for(var e=0;e<a.length;e++){
+		var f=a[e];
+		while(f.charAt(0)==" "){
+			f=f.substring(1)
+		}
+		if(f.indexOf(b)==0){
+			return f.substring(b.length,f.length)
+		}
+	}
+	return""
+}
+function insertTextAtCursor(a,d){
+	var b=a.getDoc();
+	var c=b.getCursor();
+	b.replaceRange(d,c)
+}
+var test0=document.getElementById("codecpp").value;
+var test1=document.getElementById("codepas").value;
+var test2=document.getElementById("codejava").value;
+var test3=document.getElementById("codepy").value;
+function change(){
+	var a=document.add.file.value;
+	console.log(a);
+	if(a=="cpp"){
+		editor.setValue("");
+		insertTextAtCursor(editor,test0);
+		editor.setOption("mode","text/x-c++src")
+	}else if(a=="pas"){
+		editor.setValue("");
+		insertTextAtCursor(editor,test1);
+		editor.setOption("mode","text/x-pascal")
+	} else if(a=="py"){
+		editor.setValue("");
+		insertTextAtCursor(editor,test3);
+		editor.setOption("mode","text/x-python")
+	} else if(a=="java"){
+		editor.setValue("");
+		insertTextAtCursor(editor,test2);
+		editor.setOption("mode","text/x-java")
+	}
+}
+</script>
 <?php
 
 
@@ -297,7 +348,7 @@ print "Hello World!\n"
 <option value=cpp>.cpp</option>
 <option value=pas>.pas</option>
 <option value=java>.java</option>
-<option value=java>.py</option>
+<option value=py>.py</option>
 </select>
 </div>
 </center>
@@ -377,7 +428,24 @@ int main() {
       $arr[$name.$file] = $fp;
       }
 ?>
-<script>var data=<?php echo json_encode($arr); ?>;function do_something(a,b){var c=data[a+b];editor.setValue("");insertTextAtCursor(editor,c);document.getElementById("fnames").value=a;if(b==".cpp"){editor.setOption("mode","text/x-c++src")}else{if(b==".pas"){editor.setOption("mode","text/x-pascal")}else{if(b==".java"){editor.setOption("mode","text/x-java")}}}};</script>
+<script>
+	var data=<?php echo json_encode($arr); ?>;
+	function do_something(a,b){
+		var c=data[a+b];
+		editor.setValue("");
+		insertTextAtCursor(editor,c);
+		document.getElementById("fnames").value=a;
+		if(b==".cpp"){
+			editor.setOption("mode","text/x-c++src")
+		} else if(b==".pas"){
+			editor.setOption("mode","text/x-pascal")
+		} else if(b==".java"){
+			editor.setOption("mode","text/x-java")
+		} else if(b==".py"){
+			editor.setOption("mode","text/x-python")
+		}
+	};
+</script>
 <?php
 echo '<br/><br/><center><h4>Danh sách các bài đã nộp :</h4></center><br/><div class="table-responsive"><table class="table table-condensed" style = "font-size:16px;"><tr class = "info">';
 $dir    = './'.$hisDir;
