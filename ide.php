@@ -240,7 +240,7 @@ class Ideone
         {
             $err = "Tên bài hoặc code không hợp lệ.";
         }
-        else if($file != 'cpp' && $file != 'pas' && $file != 'java')
+        else if($file != 'cpp' && $file != 'pas' && $file != 'java' && $file != 'py' && $file != 'c')
         {
           $err = "Tên file không hợp lệ.";
         }
@@ -290,9 +290,11 @@ class Ideone
 <div class=form-inline>
 <input type=text name=ten id=fnames class="form-control"/>
 <select name=file class=form-control onChange=change()>
+<option value=java>.c</option>
 <option value=cpp>.cpp</option>
 <option value=pas>.pas</option>
 <option value=java>.java</option>
+<option value=java>.py</option>
 </select>
 </div>
 </center>
