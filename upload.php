@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	include("init.php");
 	include("config.php");
 ?>
@@ -115,7 +115,7 @@
 			{$message = "LỖI: File có dung lượng quá lớn.";}
 		else if ($_FILES["file"]["error"] > 0) 
 			{$message = "LỖI: Không rõ.";}
-		else if ($extension != 'cpp' && $extension != 'pas' && $extension != 'java' && $extension != 'c') 
+		else if ($extension != 'cpp' && $extension != 'pas' && $extension != 'java' && $extension != 'c' && $extension != 'py') 
 			{
 				$message = "LỖI: File không hợp lệ.";
 			}
