@@ -224,7 +224,11 @@ class Ideone
   }
 }
 </textarea>
-<script>function setCookie(b,f,c){var e=new Date();e.setTime(e.getTime()+(c*24*60*60*1000));var a="expires="+e.toUTCString();document.cookie=b+"="+f+";"+a+";path=/"}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)}if(f.indexOf(b)==0){return f.substring(b.length,f.length)}}return""}function insertTextAtCursor(a,d){var b=a.getDoc();var c=b.getCursor();b.replaceRange(d,c)}var test0=document.getElementById("codecpp").value;var test1=document.getElementById("codepas").value;var test2=document.getElementById("codejava").value;function change(){var a=document.add.file.value;if(a=="cpp"){editor.setValue("");insertTextAtCursor(editor,test0);editor.setOption("mode","text/x-c++src")}else{if(a=="pas"){editor.setValue("");insertTextAtCursor(editor,test1);editor.setOption("mode","text/x-pascal")}else{if(a=="java"){editor.setValue("");insertTextAtCursor(editor,test2);editor.setOption("mode","text/x-java")}}}}</script>
+  <textarea style=display:none id=codepy># Hello World program in Python
+    
+print "Hello World!\n"
+</textarea>
+<script>function setCookie(b,f,c){var e=new Date();e.setTime(e.getTime()+(c*24*60*60*1000));var a="expires="+e.toUTCString();document.cookie=b+"="+f+";"+a+";path=/"}function getCookie(d){var b=d+"=";var a=document.cookie.split(";");for(var e=0;e<a.length;e++){var f=a[e];while(f.charAt(0)==" "){f=f.substring(1)}if(f.indexOf(b)==0){return f.substring(b.length,f.length)}}return""}function insertTextAtCursor(a,d){var b=a.getDoc();var c=b.getCursor();b.replaceRange(d,c)}var test0=document.getElementById("codecpp").value;var test1=document.getElementById("codepas").value;var test2=document.getElementById("codejava").value;var test3=document.getElementById("codepy").value;function change(){var a=document.add.file.value;if(a=="cpp"){editor.setValue("");insertTextAtCursor(editor,test0);editor.setOption("mode","text/x-c++src")}else{if(a=="pas"){editor.setValue("");insertTextAtCursor(editor,test1);editor.setOption("mode","text/x-pascal")}else{if(a=="py"){editor.setValue("");insertTextAtCursor(editor,test3);editor.setOption("mode","text/x-python")}else{if(a=="java"){editor.setValue("");insertTextAtCursor(editor,test2);editor.setOption("mode","text/x-java")}}}}</script>
 <?php
 
 
@@ -290,7 +294,6 @@ class Ideone
 <div class=form-inline>
 <input type=text name=ten id=fnames class="form-control"/>
 <select name=file class=form-control onChange=change()>
-<option value=java>.c</option>
 <option value=cpp>.cpp</option>
 <option value=pas>.pas</option>
 <option value=java>.java</option>
