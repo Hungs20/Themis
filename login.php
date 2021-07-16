@@ -1,6 +1,24 @@
 <?php
 session_start();
 if (isset($_SESSION['tuser'])) header("Location: index.php");
+function get_client_ip() {
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
 if (isset($_POST['username'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -33,7 +51,18 @@ if (isset($_POST['username'])) {
 		}
 		else $found++;
 	}
-	if ($found == 1) header("Location: index.php");
+	if ($found == 1) {
+		date_default_timezone_set('Asia/Ho_Chi_Minh');
+		$dirLog = "logs";
+		if (!file_exists($dirLog)) {
+			mkdir($dirLog, 0777, true);
+		}
+		$fileLog = $dirLog."/".$username.".log";
+		$fp = fopen($fileLog, "a");
+		$data = "[".date("H:i:s d-m-Y")."] đã đăng nhập với địa chỉ ip ".get_client_ip().PHP_EOL;
+		fwrite($fp, $data);
+		header("Location: index.php");
+	}
 	else header("Location: login.php?err=1");
 }	
 ?>
