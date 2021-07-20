@@ -1,5 +1,5 @@
 # Themis
-### Web Themis - Hệ thống chấm bài trực tuyến
+### Themis Web - Hệ thống chấm bài trực tuyến
 * Web được viết bằng ngôn ngữ php, dễ dàng sử dụng và cài đặt trên các webserver.
 * Giao diện Bootstrap chuẩn reponsive , style thân thiện
 * Chức năng gồm : IDE, Chatbox, Sms, Bảng Rank, Status...
