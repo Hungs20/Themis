@@ -19,6 +19,7 @@ function get_client_ip() {
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
+
 if (isset($_POST['username'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -28,7 +29,12 @@ if (isset($_POST['username'])) {
 	$found = -1;
 	foreach ($row as $r) {
 		if ($found > -1 && $username) {
-			for ($i = 0; $i < 5; $i++) $a[$i] = $r->getElementsByTagName("Cell")->item($i)->nodeValue;
+			for ($i = 0; $i < 5; $i++) {
+				$a[$i] = '';
+				if(is_object($r ->getElementsByTagName("Cell")->item($i))) {
+					$a[$i] = $r->getElementsByTagName("Cell")->item($i)->nodeValue;
+				}
+			}
 			if ($a[1] == $username) {
 				if (($a[4]==0 && $password == $a[2]) || (md5($password) == $a[2])) {
 					$_SESSION['tid'] = $a[0];
@@ -73,6 +79,19 @@ if (isset($_POST['username'])) {
 <meta name=viewport content="width=device-width, initial-scale=1">
 <title>Đăng nhập · Chấm bài trực tuyến</title>
 <link rel=stylesheet href=/css/login.css>
+<link rel=stylesheet href=/css/bootstrap.css>
+<style>
+.myAlert-top{
+    position: fixed;
+    top: 5%; 
+    right:2%;
+    width: 30%;
+}
+
+.alert{
+    display: none;
+}
+</style>
 </head>
 <body>
 <form method=POST action=<?php echo $_SERVER['PHP_SELF']?>>
@@ -167,11 +186,11 @@ if (isset($_POST['username'])) {
 </div>
 </div>
 <div class="inputGroup inputGroup1">
-<label for=email1>Username</label>
+<label for=email1>Tên đăng nhập</label>
 <input type=text id=email name=username class=email maxlength=256 <?php if (isset($_COOKIE['cooktname'])) echo "value='".$_COOKIE['cooktname']."'";?>>
 </div>
 <div class="inputGroup inputGroup2">
-<label for=password>Password</label>
+<label for=password>Mật khẩu</label>
 <input type=password id=password name=password class=password <?php if (isset($_COOKIE['cooktpass'])) echo "value='".$_COOKIE['cooktpass']."'";?>>
 </div>
 <label class=checkbox>
@@ -179,10 +198,40 @@ if (isset($_POST['username'])) {
 </label>
 <div class="inputGroup inputGroup1 helper"> <?php if (isset($_GET['err'])) echo "<font color = 'red'><b><i>Sai tên đăng nhập hoặc mật khẩu!</i></b></font>"; ?> </div>
 <div class="inputGroup inputGroup3">
-<button id=login>Log in</button>
+<button id=login>Đăng nhập</button>
 </div>
+<div class="inputGroup inputGroup1 helper"><center><a href="signup.php"><label>Đăng kí tài khoản</label></a></center></div>
 </form>
+
+<div class="myAlert-top alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Đăng kí tài khoản thành công !
+</div>
+
+
+
 <script src=js/TweenMax.min.js></script>
 <script src=js/index.js></script>
+
+<script src="js/jquery-latest.js"></script>
+<script src=js/bootstrap.min.js></script>
+<script>
+function myAlertTop(){
+  $(".myAlert-top").show();
+  setTimeout(function(){
+    $(".myAlert-top").hide(); 
+  }, 3000);
+}
+</script>
+<?php
+	if (isset($_GET['callback']) && $_GET['callback'] == 'signup') {
+		echo '<script>
+		$(window).on("load", function() {
+			myAlertTop();
+		   });
+	</script>';
+	}
+?>
+
 </body>
 </html>
